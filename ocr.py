@@ -8,7 +8,7 @@ Las páginas de un mismo documento se agrupan por nombre: `milbemax_perros_p1.pn
 `milbemax_perros_p2.png`... forman el documento «milbemax_perros».
 
 Uso:
-    python ocr.py
+    uv run ocr.py
 """
 
 import json
@@ -83,6 +83,7 @@ def agrupar_paginas(carpeta: Path) -> dict[str, list[Path]]:
 
 
 def main() -> None:
+    """Procesa todos los documentos y guarda texto y campos en `data/documentos.json`."""
     resultado = []
     for nombre, paginas in agrupar_paginas(CARPETA).items():
         texto = limpiar("\n".join(leer_imagen(p) for p in paginas))

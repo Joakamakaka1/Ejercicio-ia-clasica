@@ -11,19 +11,27 @@ from pydantic.alias_generators import to_camel
 
 
 class ModeloDialogflow(BaseModel):
+    """Base común: traduce los nombres camelCase de Dialogflow a snake_case."""
+
     model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
 
 
 class Intencion(ModeloDialogflow):
+    """Intención detectada por Dialogflow."""
+
     display_name: str
 
 
 class Contexto(ModeloDialogflow):
+    """Contexto activo de la sesión, con los parámetros que guarda."""
+
     name: str
     parameters: dict = {}
 
 
 class QueryResult(ModeloDialogflow):
+    """Resultado de la consulta: texto del usuario, intención y parámetros."""
+
     query_text: str = ""
     parameters: dict = {}
     intent: Intencion
@@ -38,17 +46,24 @@ class QueryResult(ModeloDialogflow):
 
 
 class PeticionDialogflow(ModeloDialogflow):
+    """Cuerpo de la petición que Dialogflow envía al webhook."""
+
     query_result: QueryResult
 
 
 class RespuestaDialogflow(ModeloDialogflow):
+    """Respuesta mínima del webhook: el texto (SSML) que el agente dirá."""
+
     fulfillment_text: str
 
 
 class ParametrosCita(BaseModel):
-    """Parámetros de `pedir_cita`. Pydantic convierte las fechas ISO y, si falta
-    alguno o llega mal formado, falla aquí en vez de propagar un dato inválido.
-    Los campos `*.original` que añade Dialogflow se ignoran."""
+    """Parámetros de `pedir_cita`.
+
+    Pydantic convierte las fechas ISO y, si falta alguno o llega mal formado,
+    falla aquí en vez de propagar un dato inválido. Los campos `*.original`
+    que añade Dialogflow se ignoran.
+    """
 
     dni: str
     especie: str

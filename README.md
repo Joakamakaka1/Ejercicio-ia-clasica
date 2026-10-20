@@ -17,7 +17,7 @@ flowchart TB
     U[Usuario · voz] <--> C[cliente_voz.py<br/>micrófono / altavoz]
     C <--> DF[Dialogflow ES<br/>STT + intenciones + TTS]
     DF <--> W[Webhook FastAPI<br/>regex DNI + reglas de negocio]
-    W <--> LLM[Claude<br/>contexto = texto OCR]
+    W <--> LLM[Claude Haiku 5.5<br/>contexto = texto OCR]
     D[documentos/<br/>imágenes] --> O[ocr.py · offline<br/>Tesseract + regex]
     O --> J[(data/documentos.json)]
     J --> W
@@ -28,7 +28,7 @@ flowchart TB
 | Intención | Propósito | Webhook |
 | --- | --- | --- |
 | `Default Welcome Intent` | Saludo y presentación de lo que sabe hacer | No |
-| `pedir_cita` | Recoge servicio, especie, fecha, hora y DNI (slot filling). Activa `ctx_solicitud_en_curso` | Sí: valida y calcula precio |
+| `pedir_cita` | Recoge servicio, especie, fecha, hora y DNI (slot filling). Activa `ctx_solicitud_en_curso` | Sí: valida los datos y calcula el precio |
 | `pedir_cita - si` | Follow-up de confirmación. Genera el código de referencia | Sí |
 | `pedir_cita - no` | Follow-up de cancelación. Cierra el contexto | No |
 | `consulta_documental` | Preguntas sobre tarifas, horario y prospectos | Sí: LLM sobre el texto OCR |
@@ -46,19 +46,19 @@ flowchart TB
 
 ## Decisiones técnicas
 
-- **Validación en el webhook** (`webhook/citas.py`). Se valida el DNI con regex y letra de control (módulo 23), que la fecha sea futura y que caiga en horario de apertura. El precio depende del servicio. Se valida al final del slot filling y no en cada turno, por simplicidad.
+- **Validación en el webhook** (`webhook/citas.py`). Se valida que el servicio tenga tarifa, el DNI con regex y letra de control (módulo 23), que la fecha sea futura y que caiga en horario de apertura. El precio depende del servicio. Se valida al final del slot filling y no en cada turno, por simplicidad.
 - **Horas ambiguas.** Dialogflow resuelve "a las 10:30" como la próxima 10:30, que por la noche es 22:30. Si la hora cae fuera del horario de la clínica, el webhook toma la del otro tramo de 12 h (22:30 → 10:30). El resumen repite la hora, así que el usuario puede corregirla.
 - **Corrección de un dato inválido sin repetir el resto.** Cada parámetro de `pedir_cita` tiene como valor por defecto `#ctx_solicitud_en_curso.<parámetro>`. Si el DNI es incorrecto y el usuario lo repite, los demás datos se recuperan del contexto.
 - **OCR offline** (`ocr.py`). Se ejecuta una vez y guarda `data/documentos.json`; el webhook solo lee ese fichero, porque Dialogflow corta a los 5 s.
-  - Los prospectos de CIMAVet se descargaron en PDF y se convirtieron a imagen (200 dpi, gris), para que lo que entra al OCR sean imágenes reales.
-  - La hoja de tarifas simula un escaneo: ruido, ligera rotación y desenfoque.
+  - Los prospectos de CIMAVet (Milbemax, Frontline Combo y Seresto) se descargaron en PDF y se convirtieron a imagen una sola vez con PyMuPDF (200 dpi, gris), para que lo que entra al OCR sean imágenes y no texto ya digital. Los PDF originales están en `documentos/pdf_originales/`.
+  - La hoja de tarifas es de la clínica ficticia: se generó como imagen simulando un escaneo (ruido, ligera rotación y desenfoque).
   - Preprocesado: escala de grises y autocontraste.
   - `--psm 6` (un bloque de texto): con el modo por defecto, la columna de precios de las tarifas salía separada de su servicio.
   - Regex sobre el texto reconocido: fechas `dd/mm/aaaa` y `mm/aaaa` (validadas con `strptime`), importes en euros y nº de registro AEMPS.
 - **Sin base vectorial**: con 4 documentos cabe todo el texto en el prompt (*context stuffing*), y se descartó la Knowledge Base de Dialogflow porque no permite controlar el prompt ni las alucinaciones.
 - **Control de alucinaciones**: el prompt obliga a responder solo con los documentos y, si no está la respuesta, a devolver la marca `NO_ENCONTRADO`. Es **nuestro código** el que la convierte en "esa información no aparece en los documentos". El prompt permite además lo que se deduce directamente ("domingos: cerrado" responde a "¿abrís los domingos?").
-- **LLM: Claude Haiku 5.5** (API de Anthropic, esfuerzo `low`): el modelo más rápido de Claude, adecuado para respuestas cortas sobre un texto dado. No admite *structured outputs*, por eso el "no lo sé" es una marca de texto (`NO_ENCONTRADO`) que comprueba nuestro código. Antes se probó Gemini, pero su nivel gratuito estaba saturado (6–250 s por respuesta y errores 503), incompatible con el límite de 5 s de Dialogflow.
-- **Latencia < 5 s**: el webhook responde en 0,8–3 s (el LLM) o en milisegundos (las citas). Timeout de 4 s sin reintentos y `try/except`. Respuestas de máximo ~30 palabras, para que la síntesis de voz también sea rápida. Instrucciones y documentos van fijos al principio del prompt y se marcan con `cache_control` para aprovechar la caché de prompts. Si el modelo falla o tarda, se responde un mensaje de disculpa en vez de silencio.
+- **LLM: Claude Haiku 5.5** (API de Anthropic, esfuerzo `low`): el modelo más rápido de Claude, adecuado para respuestas cortas sobre un texto dado. No admite *structured outputs*, por eso el "no lo sé" es una marca de texto (`NO_ENCONTRADO`) que comprueba nuestro código. Antes se probó Gemini, pero su nivel gratuito estaba saturado (6–250 s por respuesta y errores 503), incompatible con el límite de 5 s de Dialogflow; OpenAI se descartó por no tener saldo en la cuenta.
+- **Latencia < 5 s**: el webhook responde en 0,8–3,2 s cuando consulta el LLM y en milisegundos en el flujo de citas. Timeout de 4 s sin reintentos y `try/except`. Respuestas de máximo ~30 palabras, para que la síntesis de voz también sea rápida. Instrucciones y documentos van fijos al principio del prompt y se marcan con `cache_control` para aprovechar la caché de prompts. Si el modelo falla o tarda, se responde un mensaje de disculpa en vez de silencio.
 - **Voz**: STT y TTS nativos de Dialogflow (modo audio de `detect_intent`). El cliente graba 7 s por turno: con 5 s no daba tiempo a dictar un DNI. Todas las respuestas van en **SSML** (`<break>`, `<say-as>` para precios y para deletrear el código de referencia).
 - **Razonamiento del modelo**: se mantiene el razonamiento adaptativo con esfuerzo `low`. Se probó a desactivarlo: la latencia bajaba (máx. 2,4 s), pero fallaba en preguntas que obligan a buscar dentro de los prospectos largos. Con `low` la evaluación da 14/14 con latencia máxima de 3,2 s.
 
@@ -69,10 +69,10 @@ clinica-vet-bot/
 ├── cliente_voz.py          # cliente de voz (micrófono <-> Dialogflow)
 ├── ocr.py                  # OCR offline -> data/documentos.json
 ├── data/documentos.json    # texto OCR + campos extraídos con regex
-├── documentos/             # imágenes de entrada (y PDFs originales de CIMAVet)
+├── documentos/             # imágenes de entrada (y PDF originales de CIMAVet)
 ├── dialogflow/
 │   ├── ClinicaVetPatitas.zip   # export del agente (importar en Dialogflow)
-│   └── agente/                 # el mismo export descomprimido (exportado de la consola)
+│   └── agente/                 # el mismo export descomprimido
 ├── webhook/
 │   ├── main.py            # capa HTTP (FastAPI) y logging
 │   ├── modelos.py         # contrato de Dialogflow validado con Pydantic
@@ -86,8 +86,12 @@ clinica-vet-bot/
 
 ## Cómo ejecutarlo
 
-Requisitos: [uv](https://docs.astral.sh/uv/) y Tesseract con el idioma español
-(instalador de UB Mannheim, marcando *Spanish*).
+Requisitos:
+
+- [uv](https://docs.astral.sh/uv/) (instala Python 3.12 y las dependencias de `uv.lock`).
+- Tesseract con el idioma español (instalador de UB Mannheim, marcando *Spanish*).
+- Un agente de Dialogflow ES y una cuenta de servicio de Google Cloud con el rol *Dialogflow API Client*.
+- Una API key de Anthropic.
 
 ```bash
 uv sync

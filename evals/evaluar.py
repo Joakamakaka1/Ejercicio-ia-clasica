@@ -34,6 +34,7 @@ def es_correcta(respuesta: str, contiene: list[str] | None) -> bool:
 
 
 def main() -> None:
+    """Pasa todos los casos, muestra cada respuesta y sale con error si alguno falla."""
     casos = json.loads(CASOS.read_text(encoding="utf-8"))
     aciertos, latencias = 0, []
     for caso in casos:

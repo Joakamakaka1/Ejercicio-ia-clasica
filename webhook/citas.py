@@ -65,6 +65,7 @@ class Cita:
 
     @property
     def precio(self) -> int:
+        """Precio en euros según la tarifa del servicio."""
         return TARIFAS[self.servicio]
 
     def error(self, ahora: datetime | None = None) -> str | None:

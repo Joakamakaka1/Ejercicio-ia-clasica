@@ -52,7 +52,7 @@ def reproducir(wav_bytes: bytes) -> None:
     sd.wait()
 
 
-def hablar_con_el_agente(audio_bytes: bytes):
+def hablar_con_el_agente(audio_bytes: bytes) -> dialogflow.DetectIntentResponse:
     """Envía el audio a Dialogflow y pide la respuesta también en audio."""
     entrada = dialogflow.QueryInput(
         audio_config=dialogflow.InputAudioConfig(
@@ -80,6 +80,7 @@ def sin_ssml(texto: str) -> str:
 
 
 def main() -> None:
+    """Bucle de conversación: un turno por cada Enter, hasta escribir 'q'."""
     print(f"Clínica Veterinaria Patitas · proyecto {PROJECT_ID}")
     print("Enter para hablar, 'q' + Enter para salir.")
 

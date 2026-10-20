@@ -13,7 +13,7 @@ dependencies = [
     #---------- OCR (offline)
     "pytesseract",
     "pillow",
-    #----------Cliente de voz
+    #---------- Cliente de voz
     "google-cloud-dialogflow",
     "sounddevice",
     "numpy",
