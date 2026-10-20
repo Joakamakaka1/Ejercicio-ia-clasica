@@ -1,0 +1,44 @@
+[project]
+name = "clinica-vet-bot"
+version = "1.0.0"
+description = "Asistente de voz de la Clínica Veterinaria Patitas (Dialogflow ES + FastAPI + OCR + Claude)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    #---------- Webhook
+    "fastapi",
+    "uvicorn[standard]",
+    "python-dotenv",
+    "anthropic",
+    #---------- OCR (offline)
+    "pytesseract",
+    "pillow",
+    #----------Cliente de voz
+    "google-cloud-dialogflow",
+    "sounddevice",
+    "numpy",
+    #---------- Zonas horarias (Windows no trae la base de datos IANA)
+    "tzdata",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.15.1",
+    "mypy>=2.4.0",
+    "pytest",
+    "ruff>=0.17.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Errores, imports, Python moderno, bugs probables y simplificaciones
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+files = ["webhook", "evals", "ocr.py", "cliente_voz.py", "tests"]
+ignore_missing_imports = true  # pytesseract y sounddevice no publican tipos

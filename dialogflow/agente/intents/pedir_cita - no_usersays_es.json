@@ -1,0 +1,93 @@
+[
+  {
+    "id": "5e455878-ffc8-4856-a54e-6bf07cf4b871",
+    "data": [
+      {
+        "text": "no",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f17ac6f8-7f6d-4e36-a9e9-6076e2338c4a",
+    "data": [
+      {
+        "text": "no gracias",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cc9d7ba0-9f90-4586-a3a0-2a65325138d7",
+    "data": [
+      {
+        "text": "cancela",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "b6216d82-983e-400d-be14-6e73b00d802d",
+    "data": [
+      {
+        "text": "déjalo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4c767453-d534-4b27-9b3d-498e1e3f4447",
+    "data": [
+      {
+        "text": "mejor no",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f361edb3-c382-46be-9404-8a13e5f93395",
+    "data": [
+      {
+        "text": "no es correcto",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "6209fbcb-916d-4d74-94d1-c6861328458b",
+    "data": [
+      {
+        "text": "no quiero",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

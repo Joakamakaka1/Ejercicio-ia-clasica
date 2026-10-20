@@ -1,0 +1,145 @@
+[
+  {
+    "id": "bb9c2a38-9124-43ac-b21f-da9f272823a3",
+    "data": [
+      {
+        "text": "sí",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "de04dcb5-1349-4282-b904-a46e88664611",
+    "data": [
+      {
+        "text": "si",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a08c976f-5bdc-4cbf-be3c-35f9ca3a0c53",
+    "data": [
+      {
+        "text": "sí, confírmala",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "08f3728a-ae66-4193-b8cf-d6c9d2d0a1db",
+    "data": [
+      {
+        "text": "correcto",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "33b8b58f-49d3-40c7-b1a5-684633d47da8",
+    "data": [
+      {
+        "text": "adelante",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "e0967787-9616-4fb7-97d1-0275a4fce5e2",
+    "data": [
+      {
+        "text": "vale",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2344a87e-1188-413a-928f-6c4a8be77381",
+    "data": [
+      {
+        "text": "perfecto",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "95749c03-8a4d-406b-9fd1-92fa6f4a0e94",
+    "data": [
+      {
+        "text": "de acuerdo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "20fe07a9-bc8a-43fe-9da6-66be2e7e743a",
+    "data": [
+      {
+        "text": "sí por favor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "ee1370de-9164-44ca-af71-58e881018199",
+    "data": [
+      {
+        "text": "está bien",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "963cfec9-a735-48f1-9007-848153e9017b",
+    "data": [
+      {
+        "text": "confirmo",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

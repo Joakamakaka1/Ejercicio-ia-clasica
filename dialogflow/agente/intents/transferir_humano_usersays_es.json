@@ -1,0 +1,93 @@
+[
+  {
+    "id": "157df389-9941-4259-b720-3fb0338457cc",
+    "data": [
+      {
+        "text": "quiero hablar con una persona",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "469c9699-cf44-4463-b032-87fa68ae6755",
+    "data": [
+      {
+        "text": "pásame con un veterinario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "f11915f9-b3e5-4746-a9e3-019f2cfd5894",
+    "data": [
+      {
+        "text": "quiero hablar con un humano",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "2ae364e8-a990-4e53-9e7d-8c6efa0371ac",
+    "data": [
+      {
+        "text": "con un agente por favor",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3d92c4d5-88a0-4db5-a8e6-a68e99fee167",
+    "data": [
+      {
+        "text": "operador",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "9b423e13-0d5a-499c-a6d4-48e09181cb1f",
+    "data": [
+      {
+        "text": "no quiero hablar con una máquina",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "62dc7c86-c33d-49e9-b84f-8f0613d540c2",
+    "data": [
+      {
+        "text": "sí, pásame con alguien",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]

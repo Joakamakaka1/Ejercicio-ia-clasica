@@ -1,0 +1,136 @@
+{
+  "id": "66ea3d4a-45a7-425e-b6aa-4f77fbbad0fa",
+  "name": "pedir_cita",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pedir_cita",
+      "affectedContexts": [
+        {
+          "name": "ctx_solicitud_en_curso",
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "da67419c-281a-4b7e-bfd6-9a33c7270a9f",
+          "name": "servicio",
+          "required": true,
+          "dataType": "@servicio",
+          "value": "$servicio",
+          "defaultValue": "#ctx_solicitud_en_curso.servicio",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿Qué servicio necesitas? Tenemos consulta general, vacunación, desparasitación y peluquería."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "1ec1b8b4-7af6-443d-9100-1d4765b417b6",
+          "name": "especie",
+          "required": true,
+          "dataType": "@especie",
+          "value": "$especie",
+          "defaultValue": "#ctx_solicitud_en_curso.especie",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿Es para un perro, un gato o un conejo?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "328be3ef-fb62-4d0e-bb9f-bb196fb202aa",
+          "name": "fecha",
+          "required": true,
+          "dataType": "@sys.date",
+          "value": "$fecha",
+          "defaultValue": "#ctx_solicitud_en_curso.fecha",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿Qué día te viene bien?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "d9ba55a9-46b5-48b1-b1c3-85a451d76991",
+          "name": "hora",
+          "required": true,
+          "dataType": "@sys.time",
+          "value": "$hora",
+          "defaultValue": "#ctx_solicitud_en_curso.hora",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "¿A qué hora?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        },
+        {
+          "id": "dfb526bc-a062-492a-81d5-6a927ecfa3e1",
+          "name": "dni",
+          "required": true,
+          "dataType": "@dni",
+          "value": "$dni",
+          "defaultValue": "#ctx_solicitud_en_curso.dni",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "es",
+              "value": "Por último, dime tu DNI con la letra."
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "\u003cspeak\u003eTe resumo: cita de $servicio para tu $especie. ¿Confirmo la cita?\u003c/speak\u003e"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

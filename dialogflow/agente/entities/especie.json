@@ -1,0 +1,9 @@
+{
+  "id": "748a3a30-3149-4636-9b94-db76b53f1cb0",
+  "name": "especie",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

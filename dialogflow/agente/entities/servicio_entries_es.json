@@ -1,0 +1,42 @@
+[
+  {
+    "value": "consulta general",
+    "synonyms": [
+      "consulta general",
+      "consulta",
+      "revisión",
+      "chequeo",
+      "que lo vea el veterinario"
+    ]
+  },
+  {
+    "value": "vacunación",
+    "synonyms": [
+      "vacunación",
+      "vacuna",
+      "vacunas",
+      "vacunar",
+      "ponerle la vacuna"
+    ]
+  },
+  {
+    "value": "desparasitación",
+    "synonyms": [
+      "desparasitación",
+      "desparasitar",
+      "desparasitarlo",
+      "parásitos",
+      "pipeta"
+    ]
+  },
+  {
+    "value": "peluquería",
+    "synonyms": [
+      "peluquería",
+      "corte de pelo",
+      "cortar el pelo",
+      "baño",
+      "bañarlo"
+    ]
+  }
+]

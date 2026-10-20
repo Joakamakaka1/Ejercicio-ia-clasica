@@ -1,0 +1,44 @@
+{
+  "id": "c205a5b8-af51-4993-bf05-33b534317b84",
+  "parentId": "66ea3d4a-45a7-425e-b6aa-4f77fbbad0fa",
+  "rootParentId": "66ea3d4a-45a7-425e-b6aa-4f77fbbad0fa",
+  "name": "pedir_cita - si",
+  "auto": true,
+  "contexts": [
+    "ctx_solicitud_en_curso"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "pedir_cita.pedir_cita-si",
+      "affectedContexts": [
+        {
+          "name": "ctx_solicitud_en_curso",
+          "lifespan": 0
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "es",
+          "speech": [
+            "\u003cspeak\u003eTu cita queda confirmada. ¿Puedo ayudarte en algo más?\u003c/speak\u003e"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

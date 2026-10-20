@@ -1,0 +1,355 @@
+[
+  {
+    "id": "1c71ad83-20d2-4732-b7f4-2476f58bc00f",
+    "data": [
+      {
+        "text": "quiero pedir cita",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "a7f468de-b179-4824-a796-7258856193e5",
+    "data": [
+      {
+        "text": "necesito una cita",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8ca8aa85-5d2e-4c7b-9e83-c2ae5dbc150b",
+    "data": [
+      {
+        "text": "pedir hora para el veterinario",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1146d47c-7542-4476-a876-ba0555cd8f57",
+    "data": [
+      {
+        "text": "necesito una cita para mi ",
+        "userDefined": false
+      },
+      {
+        "text": "perro",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1fe98fcd-057f-45ce-a2ce-8f116cd67796",
+    "data": [
+      {
+        "text": "quiero ",
+        "userDefined": false
+      },
+      {
+        "text": "vacunar",
+        "meta": "@servicio",
+        "alias": "servicio",
+        "userDefined": true
+      },
+      {
+        "text": " a mi ",
+        "userDefined": false
+      },
+      {
+        "text": "gato",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "5ae1087f-487a-420a-adbd-c0706f105f55",
+    "data": [
+      {
+        "text": "me gustaría pedir cita de ",
+        "userDefined": false
+      },
+      {
+        "text": "peluquería",
+        "meta": "@servicio",
+        "alias": "servicio",
+        "userDefined": true
+      },
+      {
+        "text": " para mi ",
+        "userDefined": false
+      },
+      {
+        "text": "perro",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "7c7969fa-5c01-4b2c-a37d-57ff60bd63dd",
+    "data": [
+      {
+        "text": "reservar cita para ",
+        "userDefined": false
+      },
+      {
+        "text": "desparasitar",
+        "meta": "@servicio",
+        "alias": "servicio",
+        "userDefined": true
+      },
+      {
+        "text": " a mi ",
+        "userDefined": false
+      },
+      {
+        "text": "conejo",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "4175207e-10fb-4c3c-a549-f247daec5200",
+    "data": [
+      {
+        "text": "quiero que vean a mi ",
+        "userDefined": false
+      },
+      {
+        "text": "gata",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "mañana",
+        "meta": "@sys.date",
+        "alias": "fecha",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "8ce0feee-a991-4231-a213-79ce32e6da9b",
+    "data": [
+      {
+        "text": "quiero una cita el ",
+        "userDefined": false
+      },
+      {
+        "text": "lunes",
+        "meta": "@sys.date",
+        "alias": "fecha",
+        "userDefined": true
+      },
+      {
+        "text": " a las ",
+        "userDefined": false
+      },
+      {
+        "text": "10:30",
+        "meta": "@sys.time",
+        "alias": "hora",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "3e3d1e2e-2f39-4b45-b509-456e66187565",
+    "data": [
+      {
+        "text": "necesito ",
+        "userDefined": false
+      },
+      {
+        "text": "consulta general",
+        "meta": "@servicio",
+        "alias": "servicio",
+        "userDefined": true
+      },
+      {
+        "text": " para mi ",
+        "userDefined": false
+      },
+      {
+        "text": "perro",
+        "meta": "@especie",
+        "alias": "especie",
+        "userDefined": true
+      },
+      {
+        "text": " el ",
+        "userDefined": false
+      },
+      {
+        "text": "martes",
+        "meta": "@sys.date",
+        "alias": "fecha",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "46313045-1e1a-43b5-b25d-417819806c32",
+    "data": [
+      {
+        "text": "mejor el ",
+        "userDefined": false
+      },
+      {
+        "text": "viernes",
+        "meta": "@sys.date",
+        "alias": "fecha",
+        "userDefined": true
+      },
+      {
+        "text": " a las ",
+        "userDefined": false
+      },
+      {
+        "text": "11 de la mañana",
+        "meta": "@sys.time",
+        "alias": "hora",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "d6a8ed66-85d6-4f7c-9fb9-a0719e99eacf",
+    "data": [
+      {
+        "text": "cámbialo al ",
+        "userDefined": false
+      },
+      {
+        "text": "jueves",
+        "meta": "@sys.date",
+        "alias": "fecha",
+        "userDefined": true
+      },
+      {
+        "text": " a las ",
+        "userDefined": false
+      },
+      {
+        "text": "17:00",
+        "meta": "@sys.time",
+        "alias": "hora",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "1246d202-caa8-44b3-838e-d0a7b618deaa",
+    "data": [
+      {
+        "text": "mi DNI es ",
+        "userDefined": false
+      },
+      {
+        "text": "12345678Z",
+        "meta": "@dni",
+        "alias": "dni",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "10078143-88b2-436b-9255-c2a57ad48c13",
+    "data": [
+      {
+        "text": "el DNI es ",
+        "userDefined": false
+      },
+      {
+        "text": "87654321X",
+        "meta": "@dni",
+        "alias": "dni",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  },
+  {
+    "id": "cf4514dd-1825-4843-b922-e2a1b9cf7af2",
+    "data": [
+      {
+        "text": "12345678Z",
+        "meta": "@dni",
+        "alias": "dni",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "es",
+    "updated": 0
+  }
+]
